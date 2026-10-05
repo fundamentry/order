@@ -1,3 +1,10 @@
+## 1.0.1
+
+### 🩹 Fixes
+
+- resolve internal imports to compiled declarations for consumers ([ab91402](https://github.com/fundamentry/order/commit/ab91402))
+- exclude test files from the published package ([185a470](https://github.com/fundamentry/order/commit/185a470))
+
 # 1.0.0
 
 ### 🚀 Features
