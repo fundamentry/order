@@ -1,4 +1,4 @@
-import { type Comparable } from '@fundamentry/trait';
+import { Comparable } from '@fundamentry/trait';
 
 export namespace Comparator {
   export type Compare<T> = (a: T, b: T) => number;
@@ -16,7 +16,7 @@ export class Comparator<T> {
   }
 
   static naturalOrder<T extends Comparable<T>>(): Comparator<T> {
-    return new Comparator((a, b) => a.compareTo(b));
+    return new Comparator((a, b) => a[Comparable.symbol](b));
   }
 
   static reverseOrder<T extends Comparable<T>>(): Comparator<T> {

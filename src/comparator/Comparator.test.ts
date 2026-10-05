@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { type Comparable } from '@fundamentry/trait';
+import { Comparable } from '@fundamentry/trait';
 
 import { Comparator } from './Comparator.js';
 
@@ -22,7 +22,7 @@ class Person implements Comparable<Person> {
     return this.#age;
   }
 
-  compareTo(other: Person): number {
+  [Comparable.symbol](other: Person): number {
     return this.#name.localeCompare(other.#name);
   }
 }
@@ -279,7 +279,7 @@ describe('Comparator', () => {
   describe('thenComparing', () => {
     it('must fall back to the next comparator when the first ties', () => {
       const bySameLength = Comparator.of<Person>(() => 0);
-      const byName = Comparator.of<Person>((a, b) => a.compareTo(b));
+      const byName = Comparator.of<Person>((a, b) => a[Comparable.symbol](b));
 
       const comparator = bySameLength.thenComparing(byName);
 
