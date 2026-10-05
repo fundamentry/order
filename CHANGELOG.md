@@ -1,3 +1,9 @@
+## 1.0.2
+
+### 🩹 Fixes
+
+- upgrade '@fundamentry/trait' to 3.1.0 ([3eac768](https://github.com/fundamentry/order/commit/3eac768))
+
 ## 1.0.1
 
 ### 🩹 Fixes
